@@ -11,7 +11,7 @@ body {
   width: 700px;
   margin: 40px auto;
   padding: 30px 40px;
-  background: #f3f3f3;
+  background: #ffffff;
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
@@ -52,7 +52,8 @@ body {
 
 <div class="card">
 
-  <div class="number">217</div>
+  <!-- Animated Number -->
+  <div class="number" id="counter">0</div>
   <div class="subtitle">Community Members Following</div>
 
   <div class="row">
@@ -72,6 +73,24 @@ body {
 
 </div>
 
-</body>
+<!-- Counter Script -->
+<script>
+let count = 0;
+let target = 217;     // ← Change this anytime
+let speed = 10;      // Lower = faster
 
+let counter = document.getElementById("counter");
+
+let updateCount = setInterval(() => {
+  if (count >= target) {
+    clearInterval(updateCount);
+  } else {
+    count++;
+    counter.innerText = count;
+  }
+}, speed);
+</script>
+
+</body>
 </html>
+
